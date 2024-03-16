@@ -9,7 +9,7 @@ const Features = () => {
 
   useGSAP(() => {
     gsap.to("#exploreVideo", {
-      exploreVideo: {
+      scrollTrigger: {
         trigger: "#exploreVideo",
         toggleActions: "play pause reverse restart",
         start: "-10% bottom",
@@ -19,16 +19,12 @@ const Features = () => {
       },
     });
 
-    animateWithGsap("#features_title", {
-      y: 0,
-      opacity: 1,
-    });
-    animateWithGsap(".g_grow", {
-      scale: 1,
-      opacity: 1,
-      ease: "power1",
-      scrub: 5.5,
-    });
+    animateWithGsap("#features_title", { y: 0, opacity: 1 });
+    animateWithGsap(
+      ".g_grow",
+      { scale: 1, opacity: 1, ease: "power1" },
+      { scrub: 5.5 }
+    );
     animateWithGsap(".g_text", {
       y: 0,
       opacity: 1,
@@ -38,28 +34,28 @@ const Features = () => {
   }, []);
 
   return (
-    <section className="h-full common-padding bg-zinc overflow-hidden relative">
+    <section className="relative h-full overflow-hidden common-padding bg-zinc">
       <div className="screen-max-width">
-        <div className="mb-12 w-full">
+        <div className="w-full mb-12">
           <h1 id="features_title" className="section-heading">
             Explore the full story.
           </h1>
         </div>
 
-        <div className="flex flex-col justify-center items-center overflow-hidden">
-          <div className="mt-32 mb-24 pl-24">
-            <h2 className="text-5xl lg:text-7xl font-semibold">iPhone.</h2>
-            <h2 className="text-5xl lg:text-7xl font-semibold">
+        <div className="flex flex-col items-center justify-center overflow-hidden">
+          <div className="pl-24 mt-32 mb-24">
+            <h2 className="text-5xl font-semibold lg:text-7xl">iPhone.</h2>
+            <h2 className="text-5xl font-semibold lg:text-7xl">
               Forged in titanium
             </h2>
           </div>
 
-          <div className="flex-center flex-col sm:px-10">
+          <div className="flex-col flex-center sm:px-10">
             <div className="relative h-[50vh] w-full flex items-center">
               <video
                 playsInline
                 id="exploreVideo"
-                className="w-full h-full object-cover object-center"
+                className="object-cover object-center w-full h-full"
                 muted
                 autoPlay
                 preload="none"
@@ -69,7 +65,7 @@ const Features = () => {
               </video>
             </div>
 
-            <div className="flex flex-col w-full relative">
+            <div className="relative flex flex-col w-full">
               <div className="feature-video-container">
                 <div className="overflow-hidden flex-1 h-[50vh]">
                   <img
